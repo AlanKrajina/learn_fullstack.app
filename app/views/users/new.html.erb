@@ -1,12 +1,30 @@
-<%= form_for @user do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br />
-    </br>
-    <%= f.label :email %>
-    <%= f.text_field :email %><br />
-    </br>
-    <%= f.label :password %>
-    <%= f.password_field :password  %><br />
-    </br>
-    <%= f.submit %>
-  <% end %>
+<div id="action-container">
+  <div class="action">
+    <h2>Sign Up!</h2>
+
+    <div>
+      <%= form_for(@user) do |f| %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.submit "Sign Up", :class => 'boost-btn btn-primary btn-sm btn-block' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <p class="cta-section">Already a member? <%= link_to "Sign In", root_path %>.</a>
+</div>
+
+<div class="home-video-wrapper">
+  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+</div>

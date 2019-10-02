@@ -1,9 +1,28 @@
-<%= form_for(:user) do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    </br></br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    </br>  </br>
-    <%= f.submit "Log In" %>
-  <% end %>
+<div id="action-container">
+  <div class="action">
+  <h1> Welcome to Learn_Fullstack.app</h1>
+
+
+    <div>
+      <%= form_for :user do |f| %>
+        <p>
+          <%= f.label :name %></br>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.submit 'Sign In', :class => 'boost-btn btn-primary btn-sm btn-block' %>
+        </p>
+      <% end %>
+    </div>
+  </div> 
+
+  <p class="cta-section">Not a member? <%= link_to "Sign Up", signup_path %> or <%= link_to "Sign In with Google", '/auth/google_oauth2'%>.</p>
+</div>
+
+<div class="home-video-wrapper">
+  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+</div>
