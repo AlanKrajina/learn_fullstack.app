@@ -1,9 +1,11 @@
+<button onclick="myFunction()">Click to Login or Signup</button>
+
 <div id="action-container">
   <div class="action">
-  <h1> Welcome to Learn_Fullstack.app</h1>
+  <h1> Login to Learn_Fullstack.app</h1>
 
 
-    <div>
+    <div id="demo">
       <%= form_for :user do |f| %>
         <p>
           <%= f.label :name %></br>
@@ -14,14 +16,57 @@
           <%= f.password_field :password %>
         </p>
         <p>
-          <%= f.submit 'Sign In', :class => 'boost-btn btn-primary btn-sm btn-block' %>
+          <%= f.submit 'Login', :class => 'boost-btn btn-primary btn-sm btn-block' %>
         </p>
       <% end %>
     </div>
-    <p class="cta-section">Not a member? <%= link_to "Sign Up", signup_path %> or <%= link_to "Sign In with Google", '/auth/google_oauth2'%>.</p>
+    <p class="cta-section"><%= link_to "Login In with Google", '/auth/google_oauth2'%>.</p>
   </div> 
 </div>
 
+<div id="action-container2" style="display:none";>
+  <div class="action">
+    <h1>Sign Up</h1>
+
+    <div>
+      <%= form_for(@user) do |f| %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.submit "Sign Up", :class => 'boost-btn btn-primary btn-sm btn-block' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
 <div class="home-video-wrapper">
   <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
 </div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("action-container");
+  var y = document.getElementById("action-container2");
+
+  if (x.style.display === "none" && y.style.display === "block") {
+    x.style.display = "block";
+    y.style.display = "none";
+
+  } else {
+    x.style.display = "none";
+    y.style.display = "block";
+
+  }
+}
+</script>
