@@ -1,5 +1,4 @@
 class LessonsController < ApplicationController
-    accepts_nested_attributes_for :comment
 
     def new
       @lesson = Lesson.new
@@ -26,6 +25,6 @@ class LessonsController < ApplicationController
     private
 
     def lesson_params
-        params.require(:lesson).permit(:title, :content, comment:[:id, :text])
+        params.require(:lesson).permit(:title, :content, comment_attributes: [:text])
     end
 end
