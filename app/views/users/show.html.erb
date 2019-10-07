@@ -3,4 +3,8 @@
 <h1><em>Welcome <%= @user.name %><em></h1>
 <p>Email: <%= @user.email %></p>
 
+
+<p><%= link_to 'Create Lesson', new_user_lesson_path(@user.id)%></p>
+
+
 <% end %>

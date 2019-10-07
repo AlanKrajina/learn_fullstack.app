@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :lessons
   resources :users
-   root 'sessions#new'
+  
+  root 'sessions#new'
 
+  resources :users do
+    resources :lessons, only: [:new, :create, :index]
+  end
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

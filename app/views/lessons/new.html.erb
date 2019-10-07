@@ -1,0 +1,16 @@
+<div>
+<%= form_for @lesson do |f| %>
+    <div>
+    <%= f.label :title%>
+    <%= f.text_field :title %>
+    </div></br>
+    <div>
+    <%= f.label :content%>
+    <%= f.text_field :content %>
+    </div></br>
+
+<br><br>
+<%= f.submit %>
+<br><br>
+<% end %>
+</div>
