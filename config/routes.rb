@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :lessons
   resources :users
    root 'sessions#new'
 
