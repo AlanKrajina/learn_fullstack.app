@@ -9,6 +9,10 @@
     <%= f.text_field :content %>
     </div></br>
 
+    <%= f.fields_for :comment do |v|%>
+        <%= v.label :text%></br>
+        <%= v.text_field :text %>
+    <% end %>
 <br><br>
 <%= f.submit %>
 <br><br>
