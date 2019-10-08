@@ -1,26 +1,26 @@
+<%=  stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
+
+
 <% if logged_in? %>
-
-
-
 <main class="main">
   <aside class="sidebar">
     <nav class="nav">
       <ul>
-        <li class="active"><a href="user_path(current_user)">Welcome <%= current_user.name %></a></li>
-        <li><a href="#">Who We Are</a></li>
-        <li><a href="#">What We Do</a></li>
-        <li><a href="#">Get In Touch</a></li>
+        <li class="active"><a>Welcome <%= current_user.name %></a></li>
+        <li><a href="#">Your Lessons</a></li>
+        <li><%= link_to 'All Lessons', lessons_path %></li>
+        <li><%= link_to "Log Out", signout_path, method: :delete %><em></li>
       </ul>
     </nav>
   </aside>
 
   <section class="twitter">
     <div class="container">
-      <a target="_blank" href="https://twitter.com/ReisnerShawn">
-        <img class="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
+      <a target="_blank" href="https://www.linkedin.com/in/alankrajina">
+        <img class="social" src="https://pndblog.typepad.com/.a/6a00e0099631d0883301bb09d01edf970d-800wi">
       </a>
-      <p>Follow me</p>
-      <p>on Twitter!</p>
+      <p>Connect with me</p>
+      <p>on LinkedIn!</p>
     </div>
   </section>
 </main>
