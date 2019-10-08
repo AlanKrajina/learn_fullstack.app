@@ -6,12 +6,16 @@
 <li>Lesson comment: <%= lesson.comment.text %><li>
 
 <ul>
-<p>Lesson Ratings: </p>
+<% if lesson.ratings.empty?  %>
+<p>There are no ratings yet.</p>
 
-<% lesson.ratings.each do |rate|  %>
+<% else %>
+<p>Lesson Rating: </p>
 
-    <li><%= rate.stars %><li>
-  
+  <% lesson.ratings.each do |rate|  %>
+
+  <li>*<%= rate.stars %><li>
+  <% end %>
 <% end %>
 </ul>
 

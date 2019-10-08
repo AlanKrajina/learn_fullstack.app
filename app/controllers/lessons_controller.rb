@@ -31,6 +31,27 @@ class LessonsController < ApplicationController
       end
     end
 
+
+
+    def edit
+      @lesson = Lesson.find_by(id: params[:id])
+    end
+  
+    def update
+      @lesson = Lesson.find_by(id: params[:id])
+      if @lesson.update(lesson_params)
+        redirect_to lesson_path(@lesson)
+      else
+        render :edit
+      end
+    end
+  
+    def destroy
+      @lesson = Lesson.find_by(id: params[:id])
+      @lesson.destroy
+      redirect_to user_path(current_user)
+    end
+
     private
 
     def lesson_params

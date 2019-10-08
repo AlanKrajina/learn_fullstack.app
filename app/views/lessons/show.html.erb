@@ -16,9 +16,11 @@
     <% @lesson.ratings.each do |rate|  %>
 
     <li>*<%= rate.stars %><li>
-  <% end %>
+    <% end %>
   <% end %>
 
 </ul>
 
+<h3><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></h3>
+<h3><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></h3>
 </div>
