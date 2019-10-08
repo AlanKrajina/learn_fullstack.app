@@ -11,8 +11,8 @@
 
         <%= form_tag("/lessons", method: "get") do %>
           <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
-          
-          <%= text_field_tag(:title) %></br></br>
+
+          <%= text_area_tag(:title) %></br></br>
             <%= submit_tag("Search") %>
           <% end %>
 
