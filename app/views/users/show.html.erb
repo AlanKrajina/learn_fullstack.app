@@ -1,13 +1,35 @@
 <% if logged_in? %>
 
-<h1><em>Welcome <%= @user.name %><em></h1>
-<p>Email: <%= @user.email %></p>
 
 
-<p><%= link_to 'Create Lesson', new_user_lesson_path(@user.id)%></p>
+<main class="main">
+  <aside class="sidebar">
+    <nav class="nav">
+      <ul>
+        <li class="active"><a href="user_path(current_user)">Welcome <%= current_user.name %></a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">Get In Touch</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<li><em><%= link_to 'All Lessons by all Users', lessons_path %><em></li>
+  <section class="twitter">
+    <div class="container">
+      <a target="_blank" href="https://twitter.com/ReisnerShawn">
+        <img class="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
+      </a>
+      <p>Follow me</p>
+      <p>on Twitter!</p>
+    </div>
+  </section>
+</main>
 
-<li><em><%= link_to "Log Out", signout_path, method: :delete %><em></li>
+
 
 <% end %>
+
+
+
+
+
