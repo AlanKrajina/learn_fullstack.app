@@ -1,28 +1,54 @@
-<p><%= link_to 'Homepage', user_path(current_user.id)%></p>
-<% @lessons.each do |lesson|  %>
-<li>Lesson creator: <%= lesson.user.name %><li>
-<li>Lesson title: <%= link_to lesson.title, lesson_path(lesson) %><li>
-<li>Lesson content: <%= lesson.content %><li>
-<li>Lesson comment: <%= lesson.comment.text %><li>
+<%=  stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
 
-<% if lesson.ratings.empty?  %>
-<p>There are no ratings yet.</p>
 
-<% else %>
-<p>Lesson Rating: </p>
+<% if logged_in? %>
+<main class="main">
+  <aside class="sidebar">
+    <nav class="nav">
+      <ul>
+        <li><%= link_to 'Homepage', user_path(current_user.id)%></li>
+        <li><%= link_to 'All Lessons', lessons_path %></li>
 
-  <% lesson.ratings.each do |rate|  %>
+        <%= form_tag("/lessons", method: "get") do %>
+          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
+          
+          <%= text_field_tag(:title) %></br></br>
+            <%= submit_tag("Search") %>
+          <% end %>
 
-  <p>*<%= rate.stars %></p>
-  <% end %>
+      </ul>
+    </nav>
+  </aside>
+
+  <section class="twitter">
+    <div class="container">
+
+    <% @lessons.each do |lesson|  %>
+      <h3>Lesson creator: <%= lesson.user.name %></h3>
+      <p>Lesson title: <%= link_to lesson.title, lesson_path(lesson) %></p>
+      <p>Lesson content: <%= lesson.content %></p>
+      <p>Lesson comment: <%= lesson.comment.text %></p>
+      
+      <% if lesson.ratings.empty?  %>
+      <p>There are no ratings yet.</p>
+      
+      <% else %>
+      <p>Lesson Rating: </p>
+      
+        <% lesson.ratings.each do |rate|  %>
+      
+        <p>*<%= rate.stars %></p>
+        <% end %>
+      <% end %>
+      
+      <p><em><%= link_to "New rating", new_lesson_rating_path(lesson.id)%><em></p>
+      
+      <% end %>
+      
+    </div>
+  </section>
+</main>
+
+
+
 <% end %>
-
-<li><em><%= link_to "New rating", new_lesson_rating_path(lesson.id)%><em><li>
-
-<% end %>
-
-<%= form_tag("/lessons", method: "get") do %>
-  <%= label_tag(:title, "Search lesson by title") %>
-    <%= text_field_tag(:title) %>
-    <%= submit_tag("Search") %>
-  <% end %>
