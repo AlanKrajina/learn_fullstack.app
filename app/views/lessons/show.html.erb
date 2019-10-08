@@ -1,29 +1,56 @@
-<p><%= link_to 'Homepage', user_path(current_user.id)%></p>
+<%=  stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
+
+<% if logged_in? %>
+<main class="main">
+  <aside class="sidebar">
+    <nav class="nav">
+      <ul>
+        <li><%= link_to 'Homepage', user_path(current_user.id)%></li>
+        <li><%= link_to 'All Lessons', lessons_path %></li>
+
+        <%= form_tag("/lessons", method: "get") do %>
+          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
+          
+          <%= text_field_tag(:title) %></br></br>
+            <%= submit_tag("Search") %>
+          <% end %>
+
+      </ul>
+    </nav>
+  </aside>
+
+  <section class="twitter">
+    <div class="container">
+
+      <h3>Lesson creator: <%= @lesson.user.name %></h3>
+      <p>Lesson title: <%= @lesson.title %></p>
+      <p>Lesson content: <%= @lesson.content %></p>
+      <p>Lesson comment: <%= @lesson.comment.text %></p>
+      
+
+      <% if @lesson.ratings.empty?  %>
+      <p>There are no ratings yet.</p>
+        <% else %>
+      <p>Lesson Rating: </p>
+        <% @lesson.ratings.each do |rate|  %>
+        <p>*<%= rate.stars %></p>
+        <% end %>
+      <% end %>
+      
+      <% if current_user.id === @lesson.user.id %>
+
+      <h3><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></h3>
+      <h3><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></h3>
+      <% end %>
 
 
-<div>
-  <p>Lesson creator: <%= @lesson.user.name %></p>
-  <p><em>Lesson Title: <%= @lesson.title %><em></p>
-  <p>Lesson Content: <%= @lesson.content %></p>
-  <p>Comment text: <%= @lesson.comment.text %></p>
+      <p><em><%= link_to "New rating", new_lesson_rating_path(@lesson.id)%><em></p>
+      
+      
+    </div>
+  </section>
+</main>
 
 
-  <% if @lesson.ratings.empty?  %>
-  <p>There are no ratings yet.</p>
 
-  <% else %>
-  <p>Lesson Rating: </p>
-
-    <% @lesson.ratings.each do |rate|  %>
-
-      <p>*<%= rate.stars %></p>
-    <% end %>
-  <% end %>
-
-<% if current_user.id === @lesson.user.id %>
-
-<h3><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></h3>
-<h3><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></h3>
 <% end %>
-
-</div>

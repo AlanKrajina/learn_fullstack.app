@@ -7,9 +7,17 @@
     <nav class="nav">
       <ul>
         <li class="active"><a>Welcome <%= current_user.name %></a></li>
-        <li><%= link_to 'Your Lessons', user_lessons_path(@lesson.user) %></li>
+
         <li><%= link_to 'All Lessons', lessons_path %></li>
-        <li><%= link_to "Log Out", signout_path, method: :delete %><em></li>
+        <li><%= link_to 'Create Lesson', new_user_lesson_path(current_user) %></li>
+
+
+        <li class="active"><a>Your Lessons:</a></li>
+        <% @lessons.each do |lesson|  %>
+          <li><%= link_to lesson.title, lesson_path(lesson) %></li>
+        <% end %>
+
+        <li class="active"><%= link_to "Log Out", signout_path, method: :delete %></li>
       </ul>
     </nav>
   </aside>

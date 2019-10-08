@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :users do
-    resources :lessons, only: [:new, :create, :index]
+    resources :lessons, only: [:new, :create, :index, :show]
   end
 
   resources :lessons do

@@ -29,14 +29,12 @@
       <p>Lesson content: <%= lesson.content %></p>
       <p>Lesson comment: <%= lesson.comment.text %></p>
       
+
       <% if lesson.ratings.empty?  %>
       <p>There are no ratings yet.</p>
-      
-      <% else %>
+        <% else %>
       <p>Lesson Rating: </p>
-      
         <% lesson.ratings.each do |rate|  %>
-      
         <p>*<%= rate.stars %></p>
         <% end %>
       <% end %>
