@@ -1,0 +1,10 @@
+<p><%= link_to 'Homepage', user_path(current_user.id)%></p>
+
+<% @lessons.each do |lesson|  %>
+<li><%= lesson.title %><li>
+<li><%= lesson.content %><li>
+<li><%= lesson.comment.text %><li>
+<li><%= lesson.user.name %><li>
+<li><em><%= link_to "New rating", new_rating_path %><em><li>
+
+<% end %>

@@ -21,6 +21,15 @@ class LessonsController < ApplicationController
       #  end
     end
 
+    def index
+      if params[:user_id]
+        @lessons = User.find(params[:user_id]).lessons
+      elsif params[:name]
+        @lessons = Lesson.search_by_name(params[:name])
+      else
+        @lessons = Lesson.all
+      end
+    end
 
     private
 
