@@ -1,7 +1,6 @@
 class RatingsController < ApplicationController
 
 	def new
-		binding.pry
 		@lesson = Lesson.find(params["lesson_id"])
 		@rating = @lesson.ratings.build
 	end

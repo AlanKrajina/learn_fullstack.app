@@ -1,5 +1,16 @@
+<p><%= link_to 'Homepage', user_path(current_user.id)%></p>
+
 <div>
-  <p><em><%= @lesson.title %><em></p>
+  <p><em>Lesson Title: <%= @lesson.title %><em></p>
   <p>Lesson Content: <%= @lesson.content %></p>
   <p>Comment text: <%= @lesson.comment.text %></p>
+  <p>Lesson Rating: </p>
+
+  <ul>
+  <% @lesson.ratings.each do |rate|  %>
+
+    <li>*<%= rate.stars %><li>
+  <% end %>
+</ul>
+
 </div>

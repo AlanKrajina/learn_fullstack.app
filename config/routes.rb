@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :lessons, only: [:new, :create, :index]
   end
 
+  resources :lessons do
+    resources :ratings, only: [:new, :create, :index, :show]
+  end
+
+
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 

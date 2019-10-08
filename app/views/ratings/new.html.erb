@@ -1,7 +1,7 @@
 <strong>New rating form</strong>
 
 <%= form_for [@lesson, @rating] do |f| %>
-	<p><%= f.text_area :content %></p>
+	<p><%= f.number_field :stars, min:0, max:10  %></p>
  
 	<%= f.submit %>
 <% end %>
