@@ -5,4 +5,6 @@ class Lesson < ApplicationRecord
 
     accepts_nested_attributes_for :comment
 
+    scope :search_by_title, -> (search_title){where("title = ?", search_title)}
+
 end

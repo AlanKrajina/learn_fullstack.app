@@ -5,7 +5,6 @@
 <li>Lesson content: <%= lesson.content %><li>
 <li>Lesson comment: <%= lesson.comment.text %><li>
 
-<ul>
 <% if lesson.ratings.empty?  %>
 <p>There are no ratings yet.</p>
 
@@ -14,11 +13,16 @@
 
   <% lesson.ratings.each do |rate|  %>
 
-  <li>*<%= rate.stars %><li>
+  <p>*<%= rate.stars %></p>
   <% end %>
 <% end %>
-</ul>
 
 <li><em><%= link_to "New rating", new_lesson_rating_path(lesson.id)%><em><li>
 
 <% end %>
+
+<%= form_tag("/lessons", method: "get") do %>
+  <%= label_tag(:title, "Search lesson by title") %>
+    <%= text_field_tag(:title) %>
+    <%= submit_tag("Search") %>
+  <% end %>

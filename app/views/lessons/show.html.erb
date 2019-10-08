@@ -1,11 +1,12 @@
 <p><%= link_to 'Homepage', user_path(current_user.id)%></p>
 
+
 <div>
+  <p>Lesson creator: <%= @lesson.user.name %></p>
   <p><em>Lesson Title: <%= @lesson.title %><em></p>
   <p>Lesson Content: <%= @lesson.content %></p>
   <p>Comment text: <%= @lesson.comment.text %></p>
 
-  <ul>
 
   <% if @lesson.ratings.empty?  %>
   <p>There are no ratings yet.</p>
@@ -15,12 +16,14 @@
 
     <% @lesson.ratings.each do |rate|  %>
 
-    <li>*<%= rate.stars %><li>
+      <p>*<%= rate.stars %></p>
     <% end %>
   <% end %>
 
-</ul>
+<% if current_user.id === @lesson.user.id %>
 
 <h3><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></h3>
 <h3><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></h3>
+<% end %>
+
 </div>
