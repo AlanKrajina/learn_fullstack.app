@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   
   root 'sessions#new'
+  get "/bestuser", to: "users#best_users", as: "best_users"
 
   resources :users do
     resources :lessons, only: [:new, :create, :index, :show]

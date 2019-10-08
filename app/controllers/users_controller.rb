@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     end
   
 
+    def best_users
+      @users = User.joins(:lessons).group(:id).order('COUNT(lessons.id) DESC').limit(5)
+    end
+
+
     private
 
     def user_params

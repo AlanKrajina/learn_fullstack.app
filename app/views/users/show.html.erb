@@ -10,12 +10,20 @@
 
         <li><%= link_to 'All Lessons', lessons_path %></li>
         <li><%= link_to 'Create Lesson', new_user_lesson_path(current_user) %></li>
+        <li><%= link_to "Top Lesson Creators", best_users_path %></li>
 
+        <% if !@lessons.empty? %>
 
         <li class="active"><a>Your Lessons:</a></li>
         <% @lessons.each do |lesson|  %>
           <li><%= link_to lesson.title, lesson_path(lesson) %></li>
         <% end %>
+
+        <% else %>
+        <li class="active"><a>No User Lessons</a></li>
+        <% end %>
+
+
 
         <li class="active"><%= link_to "Log Out", signout_path, method: :delete %></li>
       </ul>

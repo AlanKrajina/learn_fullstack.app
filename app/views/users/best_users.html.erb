@@ -21,13 +21,10 @@
 
   <section class="twitter">
     <div class="container">
-	<p>New rating form</p>
-
-	<%= form_for [@lesson, @rating] do |f| %>
-		<p><%= f.number_field :stars, min:0, max:10  %></p>
-	 
-		<%= f.submit %>
-	<% end %>
+    <% @users.each do |user|  %>
+        <p><%= user.name %></p>
+        <p class="lower">Number of lessons created: <%= user.lessons.count %></p>
+    <% end %> 
     </div>
   </section>
 </main>

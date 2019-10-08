@@ -106,10 +106,15 @@ html {
 .search {
   color: rgba(255, 255, 255, 0.75);
   line-height: 5em;
-text-transform: uppercase;
-text-decoration: none;
-letter-spacing: 0.4em;
-color: rgba(255, 255, 255, 0.35);
-display: block;
-transition: all ease-out 300ms;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.35);
+  display: block;
+  transition: all ease-out 300ms;
+}
+
+
+.twitter p.lower {
+  text-transform: lowercase;
 }
