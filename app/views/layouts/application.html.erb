@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <p><%= link_to 'Homepage', user_path(current_user.id)%></p>
+
     <%= yield %>
   </body>
 </html>
