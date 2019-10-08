@@ -14,7 +14,8 @@ def create
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-   #   render :error
+
+      render :error
     end
   end
   

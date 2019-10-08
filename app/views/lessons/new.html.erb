@@ -1,6 +1,7 @@
 <%=  stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
 
 <% if logged_in? %>
+
 <main class="main">
   <aside class="sidebar">
     <nav class="nav">
@@ -21,6 +22,8 @@
 
   <section class="twitter">
     <div class="container">
+    <div class = "fields_with_errors"><%= render 'layouts/errors' %></div>
+
     <%= form_for @lesson do |f| %>
         <div>
         <%= f.label :title%></br>
@@ -33,7 +36,7 @@
     
         <%= f.fields_for :comment do |v|%>
             <%= v.label :comment%></br>
-            <%= v.text_area(:text, size: "33x5") %>
+            <%= v.text_area(:text, size: "33x3") %>
         <% end %>
     <br><br>
     <%= f.submit %>

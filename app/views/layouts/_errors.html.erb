@@ -1,0 +1,11 @@
+<% if @lesson.errors.any? %>
+  <div class = "fields_with_errors">
+    <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being created:</font></h2>
+ 
+    <ul>
+    <% @lesson.errors.full_messages.each do |msg| %>
+      <li><em><%= msg %><em></li></br>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

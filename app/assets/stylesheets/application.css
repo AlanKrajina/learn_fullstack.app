@@ -95,5 +95,11 @@ body {
 
 
 
-
-
+.fields_with_errors{
+  color:red;
+  background-color:rgba(81, 33, 136, 0.6) ;
+  width: 500px;
+  padding-right: 10px;  
+  padding-left: 10px;
+  border-radius: 5px;
+}

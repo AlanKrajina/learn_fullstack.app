@@ -1,0 +1,34 @@
+<%= button_to "Back", root_url, :method => :get %>
+<div id="action-container2";>
+  <div class="action">
+
+    <h1>Sign Up</h1>
+    <% if !!flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p style="color:red;"><i><%= e %></i></p> 
+      <% end %>
+    <% end %>
+    <div>
+      <%= form_for(@user)  do |f| %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.submit "Sign Up", :class => 'boost-btn btn-primary btn-sm btn-block' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="home-video-wrapper">
+  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+</div>

@@ -1,0 +1,33 @@
+<%= button_to "Back", root_url, :method => :get %>
+<div id="action-container">
+  <div class="action">
+
+  <h1> Login to Learn_Fullstack.app</h1>
+  <h3 style="color:red;">Please submit valid name and password.</h3>
+    <div id="demo">
+      <%= form_for :user do |f| %>
+        <p>
+          <%= f.label :name %></br>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.submit 'Signin', :class => 'boost-btn btn-primary btn-sm btn-block' %>
+        </p>
+      <% end %>
+    </div>
+    <p class="cta-section"><%= link_to "Login In with Google", '/auth/google_oauth2'%>.</p>
+  </div> 
+</div>
+<div class="home-video-wrapper">
+  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+</div>
+
+<script>
+function myFunction() {
+    
+}
+</script>
