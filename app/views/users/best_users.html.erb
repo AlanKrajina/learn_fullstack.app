@@ -11,7 +11,7 @@
         <%= form_tag("/lessons", method: "get") do %>
           <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
           
-          <%= text_field_tag(:title) %></br></br>
+          <%= text_area_tag(:title) %></br></br>
             <%= submit_tag("Search") %>
           <% end %>
 
@@ -19,13 +19,14 @@
     </nav>
   </aside>
 
-  <section class="twitter">
-    <div class="container">
+  <section class="twitter allign2">
     <% @users.each do |user|  %>
-        <p><%= user.name %></p>
-        <p class="lower">Number of lessons created: <%= user.lessons.count %></p>
+      <p class="p">Author:</p>
+      <p class="author"><%= user.name %></p>
+
+      <p class="p">Number of lessons created:</p> 
+      <p class="author"><%= user.lessons.count %></p>
     <% end %> 
-    </div>
   </section>
 </main>
 <% end %>

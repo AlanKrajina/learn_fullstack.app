@@ -125,6 +125,11 @@ html {
   text-align: center
 }
 
+.allign2{
+  text-align: center;
+  padding-top: 150px;
+}
+
 .creator{
   color:white ;
   font-weight: bold;
@@ -156,7 +161,8 @@ html {
     font-style: italic;
   }
 
-p.li{
-  color: white;
-  text-decoration: none;
+.subs.title{
+  font-size: 27px;
+  color: rgba(70, 28, 117, 0.6) ;
+  font-weight: bold;
 }

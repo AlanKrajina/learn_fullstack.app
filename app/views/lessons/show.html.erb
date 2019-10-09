@@ -11,7 +11,7 @@
         <%= form_tag("/lessons", method: "get") do %>
           <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
           
-          <%= text_field_tag(:title) %></br></br>
+          <%= text_area_tag(:title) %></br></br>
             <%= submit_tag("Search") %>
           <% end %>
 
@@ -19,35 +19,35 @@
     </nav>
   </aside>
 
-  <section class="twitter">
-    <div class="container">
+  <section class="twitter allign2">
 
-      <h3>Lesson creator: <%= @lesson.user.name %></h3>
-      <p>Lesson title: <%= @lesson.title %></p>
-      <p>Lesson content: <%= @lesson.content %></p>
-      <p>Lesson comment: <%= @lesson.comment.text %></p>
-      
+    <p class="creator">Author:<p>
+    <p class="author"><%= @lesson.user.name %></p>
+    <p class="p">Lesson title:</p>
+    <p class="subs title"><%= @lesson.title %></p>
+    <p class="p">Lesson content: </p>
+    <p class="subs"><%= @lesson.content %></p>
+    <p class="p">Lesson comment: </p>
+    <p class="subs"><%= @lesson.comment.text %></p>
+   
 
       <% if @lesson.ratings.empty?  %>
-      <p>There are no ratings yet.</p>
+      <p class="p">There are no ratings yet.</p>
         <% else %>
-      <p>Lesson Rating: </p>
+        <p class="p">Lesson Rating: </p>
         <% @lesson.ratings.each do |rate|  %>
-        <p>*<%= rate.stars %></p>
+          <p class="subs">*<%= rate.stars %></p>
         <% end %>
       <% end %>
-      
+
+      <p class="p"><%= link_to "-> New rating <-", new_lesson_rating_path(@lesson.id)%></p>
+
       <% if current_user.id === @lesson.user.id %>
 
-      <h3><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></h3>
-      <h3><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></h3>
-      <% end %>
-
-
-      <p><em><%= link_to "New rating", new_lesson_rating_path(@lesson.id)%><em></p>
+      <p class="p"><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></p>
+      <p class="p"><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></p>
+      <% end %>      
       
-      
-    </div>
   </section>
 </main>
 
