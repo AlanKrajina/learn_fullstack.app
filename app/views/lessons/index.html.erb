@@ -44,6 +44,12 @@
       
       <p class="p"><%= link_to "-> New rating <-", new_lesson_rating_path(lesson.id)%></p>
       </br></br>
+
+      <% if current_user.id === lesson.user.id %>
+
+      <p class="p"><%= link_to "Edit Lesson", edit_lesson_path(lesson)%></p>
+      <p class="p"><%= link_to "Delete Lesson", lesson_path(lesson), method: :delete%></p>
+      <% end %>    
       <% end %>
       
   </section>

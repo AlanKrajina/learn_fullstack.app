@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     
     def show
       @user = User.find_by(:id => params[:id])
+      @lesson = Lesson.find_by(id: params[:id])
+      @lesson.user.id = @user.id
     end
   
 
