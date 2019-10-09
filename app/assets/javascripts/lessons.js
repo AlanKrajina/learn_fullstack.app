@@ -24,12 +24,7 @@ const bindClickHandlers = () => {
         $('#app-container').append(lessonHtml)
       })
     })
-  
-
   }
-
-
-
 
   const getLessons = () => {
     fetch(`/lessons.json`)
@@ -59,9 +54,19 @@ const bindClickHandlers = () => {
 
   Lesson.prototype.formatIndex = function(){
     let lessonHtml = `
-      <a href="/lessons/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.title}</h1></a>
-      <p>${this.content}</p>
-      <p>${this.comment.text}</p>
+    <section class="twitter allign4">
+    <p class="creator">Author:<p>
+    <p class="author">${this.user.name}</p>
+    <p class="p">Lesson title:</p>
+    <a href="/lessons/${this.id}" data-id="${this.id}" class="show_link"><p class="subs title">${this.title}</p></a>
+    <p class="p">Lesson content: </p>
+    <p class="subs">${this.content}</p>
+    <p class="p">Lesson comment: </p>
+    <p class="subs">${this.comment.text}</p>
+   
+   
+      
+  </section>
     `
     return lessonHtml
   };
@@ -69,9 +74,31 @@ const bindClickHandlers = () => {
 
   Lesson.prototype.formatShow = function(){
     let lessonHtml = `
-      <h3>${this.title}</h3>
-      <p>${this.content}</p>
-      <p>${this.comment.text}</p>
+
+      <section class="twitter allign3">
+
+      <p class="creator">Author:<p>
+      <p class="author">${this.user.name}</p>
+      <p class="p">Lesson title:</p>
+      <p class="subs title">${this.title}</p>
+      <p class="p">Lesson content: </p>
+      <p class="subs">${this.content}</p>
+      <p class="p">Lesson comment: </p>
+      <p class="subs">${this.comment.text}</p>
+     
+     
+        
+    </section>
+
+
+
+
+
+
+
+
+
+
     `
     return lessonHtml
   };
