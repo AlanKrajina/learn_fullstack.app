@@ -93,15 +93,7 @@ html {
     }
   }
   
-  p {
-    text-transform: uppercase;
-    font-size: 1em;
-    letter-spacing: 0.1em;
-    color: #FFF;
-    font-weight: bold;
-    margin-top: 20px;
-    padding-left: 20px;
-  }
+
 }
 
 .search {
@@ -127,4 +119,44 @@ html {
   padding-right: 10px;  
   padding-left: 10px;
   border-radius: 5px;
+}
+
+.allign{
+  text-align: center
+}
+
+.creator{
+  color:white ;
+  font-weight: bold;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding-left: 17px;
+
+}
+
+.subs{
+  color: rgba(255, 255, 255, 0.35);
+  padding-left: 17px;
+  margin-top: 20px;
+}
+
+.author{
+  color: rgba(255, 255, 255, 0.35);
+  padding-left: 17px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.p {
+    letter-spacing: 0.1em;
+    color: whitesmoke;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+p.li{
+  color: white;
+  text-decoration: none;
 }

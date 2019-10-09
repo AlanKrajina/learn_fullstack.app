@@ -21,30 +21,31 @@
     </nav>
   </aside>
 
-  <section class="twitter">
-    <div class="container">
+  <section class="twitter allign">
 
     <% @lessons.each do |lesson|  %>
-      <h3>Lesson creator: <%= lesson.user.name %></h3>
-      <p>Lesson title: <%= link_to lesson.title, lesson_path(lesson) %></p>
-      <p>Lesson content: <%= lesson.content %></p>
-      <p>Lesson comment: <%= lesson.comment.text %></p>
-      
+      <p class="creator">Author:<p>
+      <p class="author"><%= lesson.user.name %></p>
+      <p class="p">Lesson title:</p>
+      <p class="subs"><%= link_to lesson.title, lesson_path(lesson) %></p>
+      <p class="p">Lesson content: </p>
+      <p class="subs"><%= lesson.content %></p>
+      <p class="p">Lesson comment: </p>
+      <p class="subs"><%= lesson.comment.text %></p>
 
       <% if lesson.ratings.empty?  %>
-      <p>There are no ratings yet.</p>
+      <p class="p">There are no ratings yet.</p>
         <% else %>
-      <p>Lesson Rating: </p>
+        <p class="p">Lesson Rating: </p>
         <% lesson.ratings.each do |rate|  %>
-        <p>*<%= rate.stars %></p>
+          <p class="subs">*<%= rate.stars %></p>
         <% end %>
       <% end %>
       
-      <p><em><%= link_to "New rating", new_lesson_rating_path(lesson.id)%><em></p>
-      
+      <p class="p"><%= link_to "-> New rating <-", new_lesson_rating_path(lesson.id)%></p>
+      </br></br>
       <% end %>
       
-    </div>
   </section>
 </main>
 
