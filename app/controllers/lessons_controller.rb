@@ -16,9 +16,10 @@ class LessonsController < ApplicationController
 
     def show
         @lesson = Lesson.find_by(id: params[:id])
-    #    if !@lesson
-     #     redirect_to lessons_path
-      #  end
+        respond_to do |f|
+          f.html
+          f.json {render json: @lesson}
+        end
     end
 
     def index
@@ -28,6 +29,10 @@ class LessonsController < ApplicationController
         @lessons = Lesson.search_by_title(params[:title])
       else
         @lessons = Lesson.all
+        respond_to do |f|
+          f.html
+          f.json {render json: @lessons}
+        end
       end
     end
 

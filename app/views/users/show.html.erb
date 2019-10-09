@@ -1,27 +1,18 @@
 <%=  stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
 
 
-<% if logged_in? %>
 <main class="main">
   <aside class="sidebar">
     <nav class="nav">
       <ul>
         <li class="active"><a>Welcome <%= current_user.name %></a></li>
-
-        <li><%= link_to 'All Lessons', lessons_path %></li>
+        <li><%= link_to 'All Lessons Rails', lessons_path %></li>
+        <li><%= link_to 'All Lessons Ajax', lessons_path, class: "all_lessons" %></li>
         <li><%= link_to 'Create Lesson', new_user_lesson_path(current_user) %></li>
         <li><%= link_to "Top Lesson Creators", best_users_path %></li>
 
-        <% if !@lessons.empty? %>
 
-        <li class="active"><a>Your Lessons:</a></li>
-        <% @lessons.each do |lesson|  %>
-          <li><%= link_to lesson.title, lesson_path(lesson) %></li>
-        <% end %>
 
-        <% else %>
-        <li class="active"><a>No User Lessons</a></li>
-        <% end %>
 
 
 
@@ -32,18 +23,15 @@
 
   <section class="twitter">
     <div class="container">
-      <a target="_blank" href="https://www.linkedin.com/in/alankrajina">
-        <img class="social" src="https://pndblog.typepad.com/.a/6a00e0099631d0883301bb09d01edf970d-800wi">
-      </a>
-      <p>Connect with me</p>
-      <p>on LinkedIn!</p>
+
+        <div id="app-container"></div>
+
     </div>
   </section>
 </main>
 
 
 
-<% end %>
 
 
 
