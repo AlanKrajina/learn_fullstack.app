@@ -24,21 +24,23 @@
     <div class = "fields_with_errors"><%= render 'layouts/errors' %></div>
 
     <%= form_for @lesson do |f| %>
-        <div>
+        <div class="p">
         <%= f.label :title%></br>
         <%= f.text_field :title %>
         </div></br>
-        <div>
+        <div class="p">
         <%= f.label :content%></br>
         <%= f.text_area(:content, size: "33x5")  %>
         </div></br>
-    
+        <div class="p">
         <%= f.fields_for :comment do |v|%>
             <%= v.label :comment%></br>
             <%= v.text_area(:text, size: "33x3") %>
         <% end %>
-    <br><br>
+        </div>
+    <div class="p">
     <%= f.submit %>
+    </div>
     <br><br>
     <% end %>
     </div>
