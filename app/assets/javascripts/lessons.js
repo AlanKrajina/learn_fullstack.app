@@ -70,6 +70,12 @@ const bindClickHandlers = () => {
   };
 
   Lesson.prototype.formatIndex = function(){
+    let postRatings = this.ratings.map(rating => {
+      return (`
+      *${rating.stars}
+      `)
+    })
+
     let lessonHtml = `
     <section class="twitter allign4">
     <p class="creator">Author:<p>
@@ -80,6 +86,8 @@ const bindClickHandlers = () => {
     <p class="subs">${this.content}</p>
     <p class="p">Lesson comment: </p>
     <p class="subs">${this.comment.text}</p>
+    <p class="p">Lesson Ratings: </p>
+    <p class="subs">${postRatings}</p>
   </section>
     `
     return lessonHtml
@@ -87,6 +95,12 @@ const bindClickHandlers = () => {
 
 
   Lesson.prototype.formatShow = function(){
+
+    let postRatings = this.ratings.map(rating => {
+      return (`
+      *${rating.stars}
+      `)
+    })
     let lessonHtml = `
       <section class="twitter allign3">
       <p class="creator">Author:<p>
@@ -97,6 +111,8 @@ const bindClickHandlers = () => {
       <p class="subs">${this.content}</p>
       <p class="p">Lesson comment: </p>
       <p class="subs">${this.comment.text}</p> 
+      <p class="p">Lesson Ratings: </p>
+      <p class="subs">${postRatings}</p>
     </section>
     `
     return lessonHtml
