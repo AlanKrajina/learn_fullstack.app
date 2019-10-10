@@ -24,4 +24,7 @@ Rails.application.routes.draw do
 
   delete '/signout', to: 'sessions#destroy'
   
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+
+
 end
