@@ -97,10 +97,26 @@ const bindClickHandlers = () => {
   Lesson.prototype.formatShow = function(){
 
     let postRatings = this.ratings.map(rating => {
+      
+
+      if (rating.stars != null){
+
       return (`
       *${rating.stars}
       `)
-    })
+
+        } else {
+          return (`
+            There are no ratings yet.
+          `)
+    }
+  }
+  )
+
+
+
+
+
     let lessonHtml = `
       <section class="twitter allign3">
       <p class="creator">Author:<p>
@@ -112,6 +128,7 @@ const bindClickHandlers = () => {
       <p class="p">Lesson comment: </p>
       <p class="subs">${this.comment.text}</p> 
       <p class="p">Lesson Ratings: </p>
+
       <p class="subs">${postRatings}</p>
     </section>
     `
