@@ -24,7 +24,26 @@ const bindClickHandlers = () => {
         $('#app-container').append(lessonHtml)
       })
     })
+
+
+    $('#new_lesson').on('submit', function(e) {
+      e.preventDefault()
+      const values = $(this).serialize()
+
+      $.post("/lessons", values).done(function(data){
+     //   console.log(data)
+        $('.twitter').html('')
+        let newLesson = new Lesson(data)
+        let lessonHtml = newLesson.formatShow()
+        $('.twitter').html(lessonHtml)
+
+
+      })
+    })
   }
+
+
+
 
   const getLessons = () => {
     fetch(`/lessons.json`)

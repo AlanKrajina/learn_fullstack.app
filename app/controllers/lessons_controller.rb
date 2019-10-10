@@ -8,7 +8,8 @@ class LessonsController < ApplicationController
     def create
         @lesson = current_user.lessons.build(lesson_params)
           if @lesson.save
-            redirect_to lesson_path(@lesson)
+           # redirect_to lesson_path(@lesson)
+           render json: @lesson
           else
             render :new
           end
