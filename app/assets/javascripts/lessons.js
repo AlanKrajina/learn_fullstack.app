@@ -10,9 +10,10 @@ const bindClickHandlers = () => {
     })
 
 
-
+// show lesson Ajax      
     $(document).on('click', ".show_link", function(e) {
       e.preventDefault()
+
       $('#app-container').html('')
       let id = $(this).attr('data-id')
       fetch(`/lessons/${id}.json`)
@@ -26,6 +27,9 @@ const bindClickHandlers = () => {
     })
 
 
+
+
+// new lesson Ajax
     $('#new_lesson').on('submit', function(e) {
       e.preventDefault()
       const values = $(this).serialize()
@@ -36,15 +40,13 @@ const bindClickHandlers = () => {
         let newLesson = new Lesson(data)
         let lessonHtml = newLesson.formatShow()
         $('.twitter').html(lessonHtml)
-
-
       })
     })
   }
 
 
 
-
+// index lessons Ajax      
   const getLessons = () => {
     fetch(`/lessons.json`)
       .then(res => res.json())
@@ -60,6 +62,8 @@ const bindClickHandlers = () => {
       })
   }
   
+
+// Lesson constructor Ajax      
   function Lesson(lesson) {
     this.id = lesson.id
     this.title = lesson.title
@@ -69,6 +73,10 @@ const bindClickHandlers = () => {
     this.ratings = lesson.ratings
   };
 
+
+
+
+// class functions for Lesson Ajax      
   Lesson.prototype.formatIndex = function(){
     let postRatings = this.ratings.map(rating => {
       return (`
@@ -98,7 +106,6 @@ const bindClickHandlers = () => {
 
     let postRatings = this.ratings.map(rating => {
       
-
       if (rating.stars != null){
 
       return (`
@@ -112,9 +119,6 @@ const bindClickHandlers = () => {
     }
   }
   )
-
-
-
 
 
     let lessonHtml = `
