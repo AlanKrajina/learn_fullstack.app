@@ -9,7 +9,6 @@ const bindClickHandlers = () => {
         getLessons()
     })
 
-
 // show lesson Ajax      
     $(document).on('click', ".show_link", function(e) {
       e.preventDefault()
@@ -26,21 +25,21 @@ const bindClickHandlers = () => {
       })
     })
 
-
 // new lesson Ajax
     $('#new_lesson').on('submit', function(e) {
       e.preventDefault()
       const values = $(this).serialize()
 
       $.post("/lessons", values).done(function(data){
-     //   console.log(data)
         $('.twitter').html('')
         let newLesson = new Lesson(data)
         let lessonHtml = newLesson.formatShow()
         $('.twitter').html(lessonHtml)
       })
     })
-  }
+}
+
+
 
 
 
@@ -73,8 +72,6 @@ const bindClickHandlers = () => {
   };
 
 
-
-
 // class functions for Lesson Ajax      
   Lesson.prototype.formatIndex = function(){
     let postRatings = this.ratings.map(rating => {
@@ -100,9 +97,6 @@ const bindClickHandlers = () => {
     `
     return lessonHtml
   };
-
-
-
 
   Lesson.prototype.formatShow = function(){
 
