@@ -7,20 +7,15 @@
       <ul>
         <li><%= link_to 'Homepage', user_path(current_user.id)%></li>
         <li><%= link_to 'All Lessons', lessons_path %></li>
-
         <%= form_tag("/lessons", method: "get") do %>
-          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
-          
+          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>  
           <%= text_area_tag(:title) %></br></br>
             <%= submit_tag("Search") %>
           <% end %>
-
       </ul>
     </nav>
   </aside>
-
   <section class="twitter allign2">
-
     <p class="creator">Author:<p>
     <p class="author"><%= @lesson.user.name %></p>
     <p class="p">Lesson title:</p>
@@ -29,8 +24,6 @@
     <p class="subs"><%= @lesson.content %></p>
     <p class="p">Lesson comment: </p>
     <p class="subs"><%= @lesson.comment.text %></p>
-   
-
       <% if @lesson.ratings.empty?  %>
       <p class="p">There are no ratings yet.</p>
         <% else %>
@@ -39,18 +32,11 @@
           <p class="subs">*<%= rate.stars %></p>
         <% end %>
       <% end %>
-
       <p class="p"><%= link_to "-> New rating <-", new_lesson_rating_path(@lesson.id)%></p>
-
       <% if current_user.id === @lesson.user.id %>
-
       <p class="p"><%= link_to "Edit Lesson", edit_lesson_path(@lesson)%></p>
       <p class="p"><%= link_to "Delete Lesson", lesson_path(@lesson), method: :delete%></p>
       <% end %>      
-      
   </section>
 </main>
-
-
-
 <% end %>

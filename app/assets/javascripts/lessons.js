@@ -1,5 +1,5 @@
 $(() => {
-    bindClickHandlers()
+    bindClickHandlers();
 })
 
 const bindClickHandlers = () => {
@@ -19,14 +19,12 @@ const bindClickHandlers = () => {
       fetch(`/lessons/${id}.json`)
       .then(res => res.json())
       .then(lesson => {
-        let newLesson = new Lesson(lesson)
+       let newLesson = new Lesson(lesson)
         let lessonHtml = newLesson.formatShow()
   
         $('#app-container').append(lessonHtml)
       })
     })
-
-
 
 
 // new lesson Ajax
@@ -61,7 +59,8 @@ const bindClickHandlers = () => {
          })
       })
   }
-  
+ 
+
 
 // Lesson constructor Ajax      
   function Lesson(lesson) {
@@ -96,10 +95,13 @@ const bindClickHandlers = () => {
     <p class="subs">${this.comment.text}</p>
     <p class="p">Lesson Ratings: </p>
     <p class="subs">${postRatings}</p>
+
   </section>
     `
     return lessonHtml
   };
+
+
 
 
   Lesson.prototype.formatShow = function(){
@@ -116,11 +118,7 @@ const bindClickHandlers = () => {
           return (`
             There are no ratings yet.
           `)
-    }
-  }
-  )
-
-
+    }})
     let lessonHtml = `
       <section class="twitter allign3">
       <p class="creator">Author:<p>
