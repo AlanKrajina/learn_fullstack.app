@@ -15,16 +15,10 @@ Rails.application.routes.draw do
     resources :ratings, only: [:new, :create, :index, :show]
   end
 
-
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-
   get '/' => 'sessions#new'
   post '/' => 'sessions#create'
-
   delete '/signout', to: 'sessions#destroy'
-  
   get '/auth/:provider/callback' => 'sessions#omniauth'
-
-
 end
