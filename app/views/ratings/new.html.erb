@@ -2,32 +2,14 @@
 
 <% if logged_in? %>
 <main class="main">
-  <aside class="sidebar">
-    <nav class="nav">
-      <ul>
-        <li><%= link_to 'Homepage', user_path(current_user.id)%></li>
-        <li><%= link_to 'All Lessons', lessons_path %></li>
-
-        <%= form_tag("/lessons", method: "get") do %>
-          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
-          
-          <%= text_field_tag(:title) %></br></br>
-            <%= submit_tag("Search") %>
-          <% end %>
-
-      </ul>
-    </nav>
-  </aside>
-
+<%= render 'lessons/aside' %>
   <section class="twitter">
     <div class="container">
-	<p>New rating form</p>
-
-	<%= form_for [@lesson, @rating] do |f| %>
+	  <p>New rating form</p>
+	  <%= form_for [@lesson, @rating] do |f| %>
 		<p><%= f.number_field :stars, min:0, max:10  %></p>
-	 
 		<%= f.submit %>
-	<% end %>
+	  <% end %>
     </div>
   </section>
 </main>

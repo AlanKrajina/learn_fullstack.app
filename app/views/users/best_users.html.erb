@@ -2,28 +2,11 @@
 
 <% if logged_in? %>
 <main class="main">
-  <aside class="sidebar">
-    <nav class="nav">
-      <ul>
-        <li><%= link_to 'Homepage', user_path(current_user.id)%></li>
-        <li><%= link_to 'All Lessons', lessons_path %></li>
-
-        <%= form_tag("/lessons", method: "get") do %>
-          <li class ="search"><%= label_tag(:title, "Search lesson by title:") %></li>
-          
-          <%= text_area_tag(:title) %></br></br>
-            <%= submit_tag("Search") %>
-          <% end %>
-
-      </ul>
-    </nav>
-  </aside>
-
+<%= render 'lessons/aside' %>
   <section class="twitter allign2">
     <% @users.each do |user|  %>
       <p class="p">Author:</p>
       <p class="author"><%= user.name %></p>
-
       <p class="p">Number of lessons created:</p> 
       <p class="author"><%= user.lessons.count %></p>
     <% end %> 
