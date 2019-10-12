@@ -14,7 +14,6 @@ The app allows us to:
 - User can view users with most lessons created.
 - All inputs are validated.
 - App translates JSON responses into JavaScript Model Objects using constructor syntax. 
-- App translates JSON responses into JavaScript Model Objects using constructor syntax. 
 - Includes two prototype methods.
 - Renders one index and one show page via JavaScript and an Active Model Serialization JSON Backend.
 - Dynamically renders on the page at least one serialized 'has_many' relationship through JSON using JavaScript.
