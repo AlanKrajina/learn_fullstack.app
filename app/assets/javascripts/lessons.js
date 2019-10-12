@@ -19,9 +19,8 @@ const bindClickHandlers = () => {
       .then(res => res.json())
       .then(lesson => {
        let newLesson = new Lesson(lesson)
-        let lessonHtml = newLesson.formatShow()
-  
-        $('#app-container').append(lessonHtml)
+       let lessonHtml = newLesson.formatShow()
+       $('#app-container').append(lessonHtml)
       })
     })
 
@@ -39,10 +38,6 @@ const bindClickHandlers = () => {
     })
 }
 
-
-
-
-
 // index lessons Ajax      
   const getLessons = () => {
     fetch(`/lessons.json`)
@@ -51,16 +46,12 @@ const bindClickHandlers = () => {
          $('#app-container').html('')
          lessons.forEach(lesson => {
            let newLesson = new Lesson(lesson)
-  
            let lessonHtml = newLesson.formatIndex()
-  
            $('#app-container').append(lessonHtml)
          })
       })
   }
  
-
-
 // Lesson constructor Ajax      
   function Lesson(lesson) {
     this.id = lesson.id
@@ -71,7 +62,6 @@ const bindClickHandlers = () => {
     this.ratings = lesson.ratings
   };
 
-
 // class functions for Lesson Ajax      
   Lesson.prototype.formatIndex = function(){
     let postRatings = this.ratings.map(rating => {
@@ -79,7 +69,6 @@ const bindClickHandlers = () => {
       *${rating.stars}
       `)
     })
-
     let lessonHtml = `
     <section class="twitter allign4">
     <p class="creator">Author:<p>
@@ -92,27 +81,17 @@ const bindClickHandlers = () => {
     <p class="subs">${this.comment.text}</p>
     <p class="p">Lesson Ratings: </p>
     <p class="subs">${postRatings}</p>
-
   </section>
     `
     return lessonHtml
   };
 
   Lesson.prototype.formatShow = function(){
-
     let postRatings = this.ratings.map(rating => {
-      
-      if (rating.stars != null){
-
       return (`
       *${rating.stars}
       `)
-
-        } else {
-          return (`
-            There are no ratings yet.
-          `)
-    }})
+    })
     let lessonHtml = `
       <section class="twitter allign3">
       <p class="creator">Author:<p>
@@ -124,7 +103,6 @@ const bindClickHandlers = () => {
       <p class="p">Lesson comment: </p>
       <p class="subs">${this.comment.text}</p> 
       <p class="p">Lesson Ratings: </p>
-
       <p class="subs">${postRatings}</p>
     </section>
     `
