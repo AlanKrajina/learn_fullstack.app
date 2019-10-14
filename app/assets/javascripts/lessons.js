@@ -12,6 +12,7 @@ const bindClickHandlers = () => {
 // show lesson Ajax      
     $(document).on('click', ".show_link", function(e) {
       e.preventDefault()
+      history.pushState(null, null, "lesson")
 
       $('#app-container').html('')
       let id = $(this).attr('data-id')
@@ -70,7 +71,7 @@ const bindClickHandlers = () => {
       `)
     })
     let lessonHtml = `
-    <section class="twitter allign4">
+  <section class="twitter allign4">
     <p class="creator">Author:<p>
     <p class="author">${this.user.name}</p>
     <p class="p">Lesson title:</p>
@@ -93,7 +94,7 @@ const bindClickHandlers = () => {
       `)
     })
     let lessonHtml = `
-      <section class="twitter allign3">
+    <section class="twitter allign3">
       <p class="creator">Author:<p>
       <p class="author">${this.user.name}</p>
       <p class="p">Lesson title:</p>
