@@ -1,6 +1,46 @@
 $(() => {
     bindClickHandlers();
+    clickHandlers();
 })
+
+const clickHandlers = () => {
+  $('.index_link').on('click', e => {
+      e.preventDefault()
+      console.log(e)
+      history.pushState(null, null, "lessons")
+      index()
+  })
+  const index = () => {
+    fetch(`/lessons.json`)
+      .then(res => res.json())
+      .then(lessons => {
+         $('#app-container').html('')
+
+         lessons.sort(function(a, b) {
+          var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+          var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        
+          // names must be equal
+          return 0;
+        });
+
+
+
+         lessons.forEach(lesson => {
+           let newLesson = new Lesson(lesson)
+           let lessonHtml = newLesson.formatIndex()
+           $('#app-container').append(lessonHtml)
+         })
+      })
+  }
+
+}
 
 const bindClickHandlers = () => {
     $('.all_lessons').on('click', e => {
