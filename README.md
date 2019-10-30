@@ -1,6 +1,6 @@
 # Learn_Fullstack.App
 
-In this project I have build a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. 
+In this project I have built a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. 
 Main requirement is to add dynamic features to your previous Rails application that are possible only through JavaScript and a JSON API.
 
 For the first requirement we are to use our previous Rails app and upon that one build dynamic JS features. I decided to create a new Rails app just to get more practice. I added additional features and functionalities to differ from previous Rails project.
