@@ -54,6 +54,7 @@ body {
 
 .action {
   text-align: center;
+  align-items: center;
   max-width: 350px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   background-color: #fff;
@@ -81,11 +82,15 @@ body {
 }
 
 #user_name {
-  width: 85%;
+  width: 90%;
 }
 
 #user_password {
-  width: 85%;
+  width: 90%;
+}
+
+#user_email {
+  width: 90%;
 }
 
 /* S I G N U P */
